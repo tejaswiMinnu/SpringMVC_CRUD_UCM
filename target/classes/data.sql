@@ -1,0 +1,11 @@
+insert into user values (1, "Teju", "Teju@123");
+insert into user values (2, "Abhi", "Abhi@123");
+insert into user values (3, "Nikki", "Nikki@123");
+insert into product values (100, "Adidas", 7);
+insert into product values (200, "Calvin Klien", 92);
+insert into product values (300, "Apple", 72);
+insert into orders values (111, "2017-01-01", 11, 1, 100);
+insert into orders values (222, "2017-01-01", 20, 1, 200);
+insert into orders values (333, "2017-02-13", 1, 1, 300);
+insert into orders values (444, "2017-02-14", 1, 1, 100);
+insert into orders values (555, "2017-03-10", 5, 2, 100);

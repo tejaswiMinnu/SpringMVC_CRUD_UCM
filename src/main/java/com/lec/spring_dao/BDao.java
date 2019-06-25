@@ -7,6 +7,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 import javax.sql.DataSource;
@@ -149,7 +150,20 @@ public class BDao {
 
 	public void saveOrder(Order o) {
 		// TODO Auto-generated method stub
-
+		Calendar calendar = Calendar.getInstance();
+	    java.sql.Date date = new java.sql.Date(calendar.getTime().getTime());
+	    System.out.println(date);
+		try { 
+			String sql = "INSERT INTO Orders (QTY,orderDate, userID,ProductID) values (?,?,?,?)";
+			PreparedStatement statement = connect.prepareStatement(sql); 
+			statement.setInt(1,Integer.parseInt(o.getQty()+""));
+			statement.setDate(2, date);
+			statement.setInt(3, Integer.parseInt(o.getCust().getcId()+""));
+			statement.setInt(4, Integer.parseInt(o.getProd().getpId()+""));
+			statement.executeUpdate(); 
+		}catch (SQLException ex) { 
+			ex.printStackTrace();
+		} 
 	}
 
 	public ArrayList<Product> getProducts() {
